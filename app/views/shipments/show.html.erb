@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Sender's Name:</strong>
+          <%= @shipment.senderName %>
+        </p>
+
+        <p>
+          <strong>Receiver's Name:</strong>
+          <%= @shipment.receiverName %>
+        </p>
+
+        <p>
+          <strong>Shipped From:</strong>
+          <%= @shipment.shippedFrom %>
+        </p>
+
+        <p>
+          <strong>Tracking Number:</strong>
+          <%= @shipment.trackingnumber %>
+        </p>
+
+        <p>
+          <strong>Destination:</strong>
+          <%= @shipment.destination %>
+        </p>
+
+        <p>
+          <strong>Arrived At / Left:</strong>
+          <%= @shipment.statoption %>
+        </p>
+
+        <p>
+          <strong>Weight:</strong>
+          <%= @shipment.weight %>
+        </p>
+
+        <p>
+          <strong>Status:</strong>
+          <%= @shipment.status %>
+        </p>
+
+        <p>
+          <strong>Current / Last Know Location:</strong>
+          <%= @shipment.lastScan %>
+        </p>
+
+        <%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+        <%= link_to 'Back', shipments_path %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
