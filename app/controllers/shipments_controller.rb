@@ -58,7 +58,7 @@ class ShipmentsController < ApplicationController
     if params[:search].present?
       @shipments = Shipment.search(params[:search])
     else
-      @shipments = Shipment.all
+      render :text => "Please provide a tracking number", :status => :unauthorized
     end
   end
 
