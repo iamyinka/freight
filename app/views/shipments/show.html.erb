@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
+    <div class="col-md-4">
+        <h4 class="text-center">
+          Shipment Details
+        </h4>
         <p id="notice"><%= notice %></p>
 
         <p>
@@ -29,35 +31,46 @@
           <%= @shipment.destination %>
         </p>
 
-        <p>
-          <strong>Arrived At / Left:</strong>
-          <%= @shipment.statoption %>
-        </p>
 
-        <p>
-          <strong>Weight:</strong>
-          <%= @shipment.weight %>
-        </p>
-
-        <p>
-          <strong>Status:</strong>
-          <%= @shipment.status %>
-        </p>
-
-        <p>
-          <strong>Current / Last Know Location:</strong>
-          <%= @shipment.lastScan %>
-        </p>
 
         <%= link_to 'Edit', edit_shipment_path(@shipment) %> |
         <%= link_to 'Back', shipments_path %>
 
     </div>
+
+    <div class="col-md-8">
+      <h4 class="text-center">Scan History</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Last Updated
+            </th>
+            <th>
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @shipment.histories.any? %>
+            <% @shipment.histories.order("updated_at DESC").each do |history| %>
+              <tr>
+                <td><%= time_ago_in_words(history.updated_at) %> ago</td>
+                <td><%= history.scan_history %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td><%= time_ago_in_words(@shipment.created_at) %> ago</td>
+              <td><%= "Shipment created" %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td><%= time_ago_in_words(@shipment.updated_at) %> ago</td>
+              <td><%= "Shipment created" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-
-
-
-
-
-

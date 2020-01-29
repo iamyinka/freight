@@ -37,14 +37,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Wed 01 Jan. 2020</td>
-            <td>Shipment arrived at facility</td>
-          </tr>
-          <tr>
-            <td>Thurs 02 Jan. 2020</td>
-            <td>Shipment arrived at facility</td>
-          </tr>
+          <% @shipments.each do |shipment| %>
+            <% if shipment.histories.any? %>
+              <% shipment.histories.order("updated_at DESC").each do |history| %>
+                <tr>
+                  <td><%= time_ago_in_words(history.updated_at) %> ago</td>
+                  <td><%= history.scan_history %></td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td><%= time_ago_in_words(shipment.updated_at) %> ago</td>
+                <td><%= "Shipment created" %></td>
+              </tr>
+            <% end %>
+          <% end %>
         </tbody>
       </table>
     </div>

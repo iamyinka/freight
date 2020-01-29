@@ -28,6 +28,7 @@ class ShipmentsController < ApplicationController
   end
 
   def edit
+    @history = @shipment.histories.build
   end
 
   def update
