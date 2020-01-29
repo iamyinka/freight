@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="XqUTOXBHzjAYDERoeQKTpqrPIrwdrkpyckRzolGP8FM" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Geelink Express</title>
+    <title>First World Delivery</title>
 
     <!-- GOOGLE FONTS -->
-    
+
 
     <%= csrf_meta_tags %>
 
@@ -28,8 +28,8 @@
   <!-- ========== NAVIGATION MENU ==============  -->
 <header>
 	<div class="container">
-	 	
-	<%= link_to image_tag("logo.png", alt: "Geelink Express Logo", class: "logo"), root_path, class: "navbar-brand" %>
+
+	<%= link_to image_tag("logo.png", alt: "First World Delivery Logo", class: "logo"), root_path, class: "navbar-brand" %>
 		<form class="form-inline pull-right trackForm animated fadeInRight" action="<%= search_path %>" method="get" id="search-form">
 		  <div class="form-group">
 		    <label class="sr-only" for="trackNumber">Enter Tracking Number</label>
@@ -45,7 +45,7 @@
 		</form>
 	</div>
 </header>
-  
+
 
   <nav class="navbar navbar-default">
 	  <div class="container">
@@ -57,7 +57,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      
+
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,7 +96,7 @@
 	      	<% if current_user && current_user.admin? %>
 	      		<li>
 	      		<%= link_to "Log Out", destroy_user_session_path, method: :delete -%>
-	      			
+
 	      		</li>
 
 
@@ -108,12 +108,12 @@
 		        </li>
 
 		    <% elsif user_signed_in? %>
-		        
+
 		        <li>
 	      		<%= link_to "Log Out", destroy_user_session_path, method: :delete -%>
-	      			
+
 	      		</li>
-		       
+
 	        <% else %>
 		        <li>
 		        <%= link_to login_path do %>
@@ -123,7 +123,7 @@
 		        </li>
 	        <% end -%>
 	      </ul>
-	     
+
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container -->
 	</nav>
@@ -141,7 +141,7 @@
 
     <div class="container">
     	<footer class="text-center">
-    		<p>&copy; Copyright 2016. Geelink Express &mdash; All Rights Reserved!</p>
+    		<p>&copy; Copyright <%= Date.today.year %>. First World Delivery &mdash; All Rights Reserved!</p>
     	</footer>
     </div>
 

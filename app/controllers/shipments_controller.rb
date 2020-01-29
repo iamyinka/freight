@@ -2,9 +2,9 @@ class ShipmentsController < ApplicationController
   before_action :set_shipment, only: [:show, :edit, :update, :destroy]
   before_action :ensure_admin, :except => [:track, :search]
   before_action :authenticate_user!, :except => [:track, :search]
-   
 
-  
+
+
   def index
     @shipments = Shipment.all
   end
@@ -52,7 +52,7 @@ class ShipmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
 
   def search
     if params[:search].present?
@@ -72,7 +72,7 @@ class ShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
-      params.require(:shipment).permit(:senderName, :receiverName, :destination, :trackingnumber,  :status, :lastScan, :shippedFrom, :weight, :statoption )
+      params.require(:shipment).permit(:senderName, :receiverName, :destination, :trackingnumber, :shippedFrom )
     end
 
     def ensure_admin
